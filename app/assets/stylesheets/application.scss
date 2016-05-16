@@ -14,6 +14,7 @@
  *= require_self
  */
 
+@import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -27,6 +28,11 @@
 	a {
 		color: #2F363E;
 	}
+}
+
+#currentUser {
+	padding-left: 15px;
+	padding-top: 15px;
 }
 
 #main_content {

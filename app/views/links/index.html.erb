@@ -4,5 +4,21 @@
       <%= link_to link.title, link %><br>
       <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> ago by <%= link.user.email %></small>
     </h2>
+
+  <!-- creating like and dislike buttons for links -->
+    <div class="btn-group">
+      <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit link</a>
+
+    <!-- like a link and display how many likes -->
+      <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+        <i class="fa fa-thumbs-up" style="color:green;"></i> Upvote <%= link.get_upvotes.size %>
+      <% end %>
+
+    <!-- dislike a link and display how many dislikes -->
+      <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+        <i class="fa fa-thumbs-down" style="color:red;"></i> Downvote <%= link.get_downvotes.size %>
+      <% end %>
+
+    </div>
   </div>
 <% end %>

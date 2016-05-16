@@ -60,9 +60,23 @@ class LinksController < ApplicationController
   def destroy
     @link.destroy
     respond_to do |format|
-      format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
+      format.html { redirect_to links_url, notice: 'Link was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+
+  # current_user can like links and is redirected to the page they were on
+  def upvote
+    @link = Link.find(params[:id])
+    @link.upvote_by current_user
+    redirect_to :back
+  end
+
+  # current_user can dislike links and is redirected to the page they were on
+  def downvote
+    @link = Link.find(params[:id])
+    @link.downvote_by current_user
+    redirect_to :back
   end
 
   private
