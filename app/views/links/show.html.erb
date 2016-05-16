@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1><a href="<%= @link.url %>"><%= @link.title %></a><br> <small>Submitted by <%= @link.user.email %></small></h1>
+  <h1><a href="<%= @link.url %>"><%= @link.title %></a><br> <small>Submitted by <%= @link.user.username %></small></h1>
 </div>
 
 <div class="btn-group">
@@ -8,8 +8,8 @@
 
 <% if @link.user == current_user -%>
 	<div class="btn-group">
-		<%= link_to 'Edit', edit_link_path(@link), class: "btn btn-default" %>
-		<%= link_to 'Delete', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+		<%= link_to 'Edit', edit_link_path(@link), class: "btn btn-info" %>
+		<%= link_to 'Delete', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning" %>
 	</div>
 <% end %>
 
@@ -17,13 +17,13 @@
 <div class="btn-group pull-right">
 
 <!-- like a link and display how many likes -->
-  <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
-    <i class="fa fa-thumbs-up" style="color:green;"></i> Upvote <%= @link.get_upvotes.size %>
+  <%= link_to like_link_path(@link), method: :put, class: "btn btn-success btn-sm" do %>
+    <i class="fa fa-thumbs-o-up"></i> Like <%= @link.get_upvotes.size %>
   <% end %>
 
 <!-- dislike a link and display how many dislikes -->
-  <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
-    <i class="fa fa-thumbs-down" style="color:red;"></i> Downvote <%= @link.get_downvotes.size %>
+  <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-danger btn-sm" do %>
+    <i class="fa fa-thumbs-o-down"></i> Dislike <%= @link.get_downvotes.size %>
   <% end %>
 
 </div>

@@ -10,11 +10,11 @@
 <header class="navbar navbar-default" role="navigation">
   <div class="navbar-inner">
     <div class="container">
-      <div id="logo" class="navbar-brand"><i class="fa fa-newspaper-o"></i> <%= link_to "Read It", root_path %></div>
+      <div id="logo" class="navbar-brand"><i class="fa fa-newspaper-o"></i> <%= link_to "Read It!", root_path %></div>
       <nav class="collapse navbar-collapse navbar-ex1-collapse">
       	<% if user_signed_in? -%>
 					<ul class="nav navbar-nav navbar-right">
-            <li><p id="currentUser">Signed in as: <%= current_user.email %></p></li>
+            <li><p id="currentUser"><i class="fa fa-user"></i> <%= current_user.username %></p></li>
 						<li><%= link_to 'Post a link', new_link_path %></li>
 						<li><%= link_to 'Account', edit_user_registration_path %></li>
 						<li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
