@@ -25,9 +25,19 @@
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	padding: 15px 0;
-	a {
-		color: #337ab7;
-	}
+	color: #337ab7;
+}
+
+.readit {
+	color: #337ab7;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: -1px;
+}
+
+.pic {
+	width: 100%;
+	height: auto;
 }
 
 #currentUser {
